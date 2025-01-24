@@ -68,6 +68,7 @@ module Abilities
       can :read_results, Budget do |budget|
         budget.balloting_finished? && budget.has_winning_investments?
       end
+      can :export_pb, Budget, published: true
 
       can [:read, :create, :update, :destroy], Budget::Group
       can [:read, :create, :update, :destroy], Budget::Heading

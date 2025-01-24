@@ -52,6 +52,13 @@ Rails.application.routes.draw do
 
     # Static pages
     resources :pages, path: "/", only: [:show]
+
+    resources :budgets do
+      member do
+        get :export_pb
+      end
+    end
+  
   end
 
   resolve "Budget::Investment" do |investment, options|
