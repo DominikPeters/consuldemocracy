@@ -49,6 +49,10 @@
     <%= render Admin::BudgetInvestments::ToggleSelectionComponent.new(investment) %>
   </td>
 
+  <td data-field="winning">
+    <%= render Admin::BudgetInvestments::ToggleWinningComponent.new(investment) %>
+  </td>
+
   <% if params[:advanced_filters]&.include?("selected") %>
     <td data-field="incompatible">
       <%= investment.incompatible? ? t("shared.yes") : t("shared.no") %>

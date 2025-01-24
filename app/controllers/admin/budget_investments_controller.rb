@@ -92,6 +92,26 @@ class Admin::BudgetInvestmentsController < Admin::BaseController
     end
   end
 
+  def mark_as_winner
+    authorize! :mark_as_winner, @investment
+    @investment.update!(winning: true)
+
+    respond_to do |format|
+      format.html { redirect_to request.referer, notice: t("flash.actions.update.budget_investment") }
+      format.js { render :toggle_winning }
+    end
+  end
+
+  def unmark_as_winner
+    authorize! :unmark_as_winner, @investment
+    @investment.update!(winning: false)
+
+    respond_to do |format|
+      format.html { redirect_to request.referer, notice: t("flash.actions.update.budget_investment") }
+      format.js { render :toggle_winning }
+    end
+  end
+
   private
 
     def load_comments
@@ -120,7 +140,7 @@ class Admin::BudgetInvestmentsController < Admin::BaseController
 
     def allowed_params
       attributes = [:external_url, :heading_id, :administrator_id, :tag_list,
-                    :valuation_tag_list, :incompatible, :selected,
+                    :valuation_tag_list, :incompatible, :selected, :winning,
                     :milestone_tag_list, valuator_ids: [], valuator_group_ids: []]
       [*attributes, translation_params(Budget::Investment)]
     end

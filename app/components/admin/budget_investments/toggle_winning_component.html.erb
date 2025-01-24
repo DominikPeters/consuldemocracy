@@ -1,0 +1,5 @@
+<% if can?(action, investment) %>
+  <%= render Admin::ToggleSwitchComponent.new(action, investment, pressed: winning?, **options) %>
+<% elsif winning? %>
+  <%= t("admin.budget_investments.index.winning") %>
+<% end %>
