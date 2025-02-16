@@ -65,6 +65,7 @@ class Admin::BudgetsController < Admin::BaseController
         :phase,
         :currency_symbol,
         :voting_style,
+        :winner_calculation_method,
         :hide_money,
         administrator_ids: [],
         valuator_ids: [],

@@ -162,4 +162,16 @@ class Admin::BudgetInvestmentsController < Admin::BaseController
         end
       end
     end
+
+    def budget_params
+      {
+        budget_id: @budget.id,
+        filter: params[:filter],
+        sort_by: params[:sort_by],
+        min_total_supports: params[:min_total_supports],
+        max_total_supports: params[:max_total_supports],
+        advanced_filters: params[:advanced_filters],
+        page: params[:page]
+      }
+    end
 end

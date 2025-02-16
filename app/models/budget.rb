@@ -21,6 +21,7 @@ class Budget < ApplicationRecord
 
   CURRENCY_SYMBOLS = %w[€ $ £ ¥].freeze
   VOTING_STYLES = %w[knapsack approval].freeze
+  WINNER_CALCULATION_METHODS = %w[highest_votes method_of_equal_shares].freeze
 
   validates_translation :name, presence: true
   validates_translation :main_link_url, presence: true, unless: -> { main_link_text.blank? }
@@ -28,6 +29,7 @@ class Budget < ApplicationRecord
   validates :currency_symbol, presence: true
   validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
   validates :voting_style, inclusion: { in: ->(*) { VOTING_STYLES }}
+  validates :winner_calculation_method, inclusion: { in: ->(*) { WINNER_CALCULATION_METHODS } }
 
   has_many :investments, dependent: :destroy
   has_many :ballots, dependent: :destroy

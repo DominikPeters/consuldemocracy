@@ -17,6 +17,12 @@ class Admin::Budgets::FormComponent < ApplicationComponent
     end
   end
 
+  def winner_calculation_methods_select_options
+    Budget::WINNER_CALCULATION_METHODS.map do |method|
+      [Budget.human_attribute_name("winner_calculation_method_#{method}"), method]
+    end
+  end
+
   def currency_symbol_select_options
     Budget::CURRENCY_SYMBOLS.map { |cs| [cs, cs] }
   end

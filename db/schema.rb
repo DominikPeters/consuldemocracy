@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_26_112901) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_25_095514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -390,6 +390,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_26_112901) do
     t.string "voting_style", default: "knapsack"
     t.boolean "published"
     t.boolean "hide_money", default: false
+    t.string "winner_calculation_method", default: "highest_votes"
   end
 
   create_table "ckeditor_assets", id: :serial, force: :cascade do |t|

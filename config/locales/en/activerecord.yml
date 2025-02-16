@@ -169,6 +169,9 @@ en:
         voting_style: "Final voting style"
         voting_style_knapsack: "Knapsack"
         voting_style_approval: "Approval"
+        winner_calculation_method: "Winner calculation method"
+        winner_calculation_method_highest_votes: "Highest votes"
+        winner_calculation_method_method_of_equal_shares: "Method of Equal Shares"
         hide_money: "Hide money amount for this budget"
       budget/translation:
         main_link_text: "Text on the link"
